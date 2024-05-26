@@ -21,7 +21,6 @@ export const HomeBall = () => {
     <>
       <NavBar />
       <header>
-        <p>hola</p>
       </header>
     </>
   );
