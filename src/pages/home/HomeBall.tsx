@@ -1,8 +1,14 @@
+import Tabs from "./tiket/Ticket";
+import BetType from "./tiket/BetType";
+import BetOptions from "./tiket/BetOptions";
+import EmptyTicket from "./tiket/EmptyTicket";
+import "./styles.css";
 import NavBar from "./NavBar";
-import Ticket from "./tiket/Ticket";
 import React, { useEffect, useState } from "react";
+type TabType = "ticketApuestas" | "cierreApuestas";
 
 const HomeBall = () => {
+  const [selectedTab, setSelectedTab] = useState<TabType>("ticketApuestas");
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
@@ -32,8 +38,11 @@ const HomeBall = () => {
   return (
     <div>
       <NavBar />
-      <div className="Tikets">
-        <Ticket />
+      <div className="app-container">
+        <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+        <BetType />
+        <BetOptions />
+        <EmptyTicket />
       </div>
       <h1>Partidos de Fútbol</h1>
 
